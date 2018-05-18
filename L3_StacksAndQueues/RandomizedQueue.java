@@ -1,6 +1,5 @@
 import edu.princeton.cs.algs4.StdRandom;
 
-@SuppressWarnings("unchecked")
 public class RandomizedQueue<Item> implements Iterable<Item> {
     private Item[] items = (Item[]) new Object[1];
     private int size = 0;
@@ -35,7 +34,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         Item item = items[random];
         items[random] = items[--size];
         items[size] = null;
-        if (size > 0 && size == items.length/4)
+        if (size > 0 && size == items.length / 4)
             resize(items.length / 2);
         return item;
     }
@@ -62,7 +61,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         }
 
         public boolean hasNext() {
-            return current != items.length;
+            return current < size;
         }
 
         public void remove(){
